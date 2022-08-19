@@ -5,32 +5,29 @@ import (
 	"strings"
 
 	"github.com/hatamiarash7/gobadge/svg"
-	geo "github.com/hatamiarash7/gobadge/svg/geometry"
 	"github.com/hatamiarash7/gobadge/svg/style"
 )
 
 func (view *View) draw() {
 	badge := view.Badge
-	origin := geo.Coordinate{X: 0, Y: 0}
-	badge.draw(view.Canvas, origin)
+	badge.draw(view.Canvas)
 }
 
-func (badge Badge) draw(canvas *svg.Canvas, origin geo.Coordinate) error {
+func (badge Badge) draw(canvas *svg.Canvas) error {
 	gradient := stockBadgeGradient("#000000", 0.1, "#BBBBBB", 0.1)
 	filter := stockTextFilter()
 
 	labelText := stockBadgeLabel(badge.Label)
-	tagText := stockBadgeTag(badge.Tag)
-	path1 := stockBadgeBlock()
-	path2 := stockBadgeColor(colormap(badge.Color))
-	rect := stockBadgeGradientRect()
+	tagText := stockBadgeTag(badge.Tag, badge.Label)
+	path1 := stockBadgeBlock(badge.Label)
+	path2 := stockBadgeColor(colormap(badge.Color), badge.Label, badge.Tag)
+	rect := stockBadgeGradientRect(badge.Label, badge.Tag)
 	labelStyle := style.Text{ID: badge.Label, Filter: filter, Text: labelText}
 	tagStyle := style.Text{ID: badge.Tag, Filter: filter, Text: tagText}
-	translation := fmt.Sprintf("translate(%f,%f)", origin.X, origin.Y)
 
 	output := strings.Join(
 		[]string{
-			`<g id="` + badge.Label + `" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="` + translation + `">`,
+			`<g id="` + badge.Label + `" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">`,
 			`<defs>`,
 			gradient.Vectorize(),
 			filter.Vectorize(),

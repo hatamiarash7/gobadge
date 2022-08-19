@@ -15,38 +15,50 @@ func stockBadgeLabel(text string) shapes.Text {
 	return stockText(text, id, origin)
 }
 
-func stockBadgeTag(text string) shapes.Text {
+func stockBadgeTag(text string, label string) shapes.Text {
+	labelWidth := float64(len(label)) * 6.5
+
 	id := makeTextID(text, "tag")
-	origin := geo.Coordinate{X: 133, Y: 14}
+	origin := geo.Coordinate{X: labelWidth + 6, Y: 14}
 	return stockText(text, id, origin)
 }
 
-func stockBadgeBlock() shapes.Path {
+func stockBadgeBlock(text string) shapes.Path {
+	width := float64(len(text)) * 6.5
+
 	return shapes.Path{
 		ID:       "block",
-		Fill:     blockfill,
+		Fill:     "#000",
 		FillRule: "nonzero",
-		D:        "M3,0 L125,0 L125,0 L125,20 L3,20 C1.34314575,20 2.02906125e-16,18.6568542 0,17 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 Z",
+		D:        "M 3 0 L " + fmt.Sprintf("%f", width) + " 0 L " + fmt.Sprintf("%f", width) + " 20 L 3 20 C 1.3431 20 0 18.6569 0 17 L 0 3 C 0 1.3431 1.3431 0 3 0",
 	}
 }
 
-func stockBadgeColor(fill string) shapes.Path {
+func stockBadgeColor(fill string, label string, tag string) shapes.Path {
+	labelWidth := float64(len(label)) * 6.5
+	tagWidth := float64(len(tag)) * 6.5
+	end := labelWidth + tagWidth + 13
+
 	return shapes.Path{
 		ID:       "color",
 		Fill:     fill,
 		FillRule: "nonzero",
-		D:        "M125,0 L227,0 C228.656854,-3.04359188e-16 230,1.34314575 230,3 L230,17 C230,18.6568542 228.656854,20 227,20 L125,20 L125,20 L125,0 Z",
+		D:        "M " + fmt.Sprintf("%f", labelWidth) + " 0 L " + fmt.Sprintf("%f", end-3) + " 0 C " + fmt.Sprintf("%f", end-2+0.6569) + " 0 " + fmt.Sprintf("%f", end) + " 2 " + fmt.Sprintf("%f", end) + " 3 L " + fmt.Sprintf("%f", end) + " 17 C " + fmt.Sprintf("%f", end) + " 18.6569 " + fmt.Sprintf("%f", end-2+0.6569) + " 20 " + fmt.Sprintf("%f", end-3) + " 20 L " + fmt.Sprintf("%f", labelWidth) + " 20",
 	}
 }
 
-func stockBadgeGradientRect() shapes.Rect {
+func stockBadgeGradientRect(label string, tag string) shapes.Rect {
+	labelWidth := float64(len(label)) * 6.5
+	tagWidth := float64(len(tag)) * 6.5
+	end := labelWidth + tagWidth + 13
+
 	return shapes.Rect{
 		ID:       "gradient",
 		Fill:     "url(#texture)",
 		FillRule: "nonzero",
 		Origin:   geo.Coordinate{X: 0, Y: 0},
 		Radius:   geo.Radius{X: 3, Y: 3},
-		Frame:    geo.Frame{Width: 230, Height: 20},
+		Frame:    geo.Frame{Width: end, Height: 20},
 	}
 }
 

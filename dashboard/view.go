@@ -10,7 +10,11 @@ type View struct {
 }
 
 func (view *View) Draw() {
-	view.Canvas.Open(float64(badgeW), float64(badgeH))
+	labelWidth := float64(len(view.Badge.Label)) * 6.5
+	tagWidth := float64(len(view.Badge.Tag)) * 6.5
+	end := labelWidth + tagWidth + 13
+
+	view.Canvas.Open(end, float64(20))
 	view.draw()
 	view.Canvas.Close()
 }
