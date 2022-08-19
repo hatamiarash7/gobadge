@@ -60,12 +60,12 @@ func stockLinearGradient(id string, topColor string, topOpacity float64, bottomC
 		Top:    style.Point{X: 50, Y: 0},
 		Bottom: style.Point{X: 50, Y: 100},
 		Stops: []style.Stop{
-			style.Stop{
+			{
 				Color:   bottomColor,
 				Opacity: bottomOpacity,
 				Offset:  0,
 			},
-			style.Stop{
+			{
 				Color:   topColor,
 				Opacity: topOpacity,
 				Offset:  100,

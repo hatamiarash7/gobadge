@@ -1,5 +1,6 @@
 package dashboard
 
+// Badge is the main struct for our badge
 type Badge struct {
 	Label string `json:"label"`
 	Tag   string `json:"tag"`
