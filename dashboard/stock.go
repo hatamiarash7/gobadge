@@ -12,12 +12,14 @@ import (
 func stockBadgeLabel(text string) shapes.Text {
 	id := makeTextID(text, "label")
 	origin := geo.Coordinate{X: 8, Y: 14}
+
 	return stockText(text, id, origin)
 }
 
 func stockBadgeTag(text string, labelWidth float64) shapes.Text {
 	id := makeTextID(text, "tag")
 	origin := geo.Coordinate{X: labelWidth + 6, Y: 14}
+
 	return stockText(text, id, origin)
 }
 

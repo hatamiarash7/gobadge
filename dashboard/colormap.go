@@ -1,7 +1,6 @@
 package dashboard
 
 func colormap(color string) string {
-
 	var fill string
 
 	red := "#FF2342"

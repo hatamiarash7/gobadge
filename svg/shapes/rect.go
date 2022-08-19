@@ -7,6 +7,7 @@ import (
 	geo "github.com/hatamiarash7/gobadge/svg/geometry"
 )
 
+// Rect is the rectangle shape
 type Rect struct {
 	ID       string
 	Fill     string
@@ -16,8 +17,8 @@ type Rect struct {
 	Frame    geo.Frame
 }
 
+// Vectorize the rectangle
 func (path Rect) Vectorize() string {
-
 	elements := strings.Join([]string{
 		fmt.Sprintf(`id="%s"`, path.ID),
 		fmt.Sprintf(`fill="%s"`, path.Fill),

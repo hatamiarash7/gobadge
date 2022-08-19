@@ -7,6 +7,7 @@ import (
 	geo "github.com/hatamiarash7/gobadge/svg/geometry"
 )
 
+// Text is the text shape for badge's text
 type Text struct {
 	ID     string
 	Value  string
@@ -14,14 +15,15 @@ type Text struct {
 	Origin geo.Coordinate
 }
 
+// Font of our text
 type Font struct {
 	Family string
 	Size   int
 	Weight string
 }
 
+// Vectorize the text
 func (text Text) Vectorize() string {
-
 	elements := strings.Join([]string{
 		fmt.Sprintf(`id="%s"`, text.ID),
 		fmt.Sprintf(`font-family="%s"`, text.Font.Family),

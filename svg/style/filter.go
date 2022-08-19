@@ -4,10 +4,12 @@ import (
 	"strings"
 )
 
+// Filter is the filter style for SVG
 type Filter struct {
 	ID string
 }
 
+// Vectorize the filter
 func (filter Filter) Vectorize() string {
 	return strings.Join([]string{`<filter x="-0.3%" y="-3.1%" width="101.4%" height="112.5%" filterUnits="objectBoundingBox" id="` + filter.ID + `">`,
 		`<feOffset dx="0.75" dy="0.75" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>`,
