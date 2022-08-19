@@ -16,7 +16,7 @@ func stockBadgeLabel(text string) shapes.Text {
 }
 
 func stockBadgeTag(text string, label string) shapes.Text {
-	labelWidth := float64(len(label)) * 6.5
+	labelWidth := float64(len(label))*6.5 + 3
 
 	id := makeTextID(text, "tag")
 	origin := geo.Coordinate{X: labelWidth + 6, Y: 14}
@@ -24,7 +24,7 @@ func stockBadgeTag(text string, label string) shapes.Text {
 }
 
 func stockBadgeBlock(text string) shapes.Path {
-	width := float64(len(text)) * 6.5
+	width := float64(len(text))*6.5 + 3
 
 	return shapes.Path{
 		ID:       "block",
@@ -35,7 +35,7 @@ func stockBadgeBlock(text string) shapes.Path {
 }
 
 func stockBadgeColor(fill string, label string, tag string) shapes.Path {
-	labelWidth := float64(len(label)) * 6.5
+	labelWidth := float64(len(label))*6.5 + 3
 	tagWidth := float64(len(tag)) * 6.5
 	end := labelWidth + tagWidth + 13
 
@@ -48,7 +48,7 @@ func stockBadgeColor(fill string, label string, tag string) shapes.Path {
 }
 
 func stockBadgeGradientRect(label string, tag string) shapes.Rect {
-	labelWidth := float64(len(label)) * 6.5
+	labelWidth := float64(len(label))*6.5 + 3
 	tagWidth := float64(len(tag)) * 6.5
 	end := labelWidth + tagWidth + 13
 
