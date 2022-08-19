@@ -10,7 +10,11 @@ import (
 
 func (view *View) draw() {
 	badge := view.Badge
-	badge.draw(view.Canvas)
+	err := badge.draw(view.Canvas)
+
+	if err != nil {
+		fmt.Printf("Error: %s", err)
+	}
 }
 
 func (badge Badge) draw(canvas *svg.Canvas) error {

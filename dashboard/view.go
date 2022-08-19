@@ -12,7 +12,12 @@ type View struct {
 
 // Draw will draw the badge
 func (view *View) Draw() {
-	view.Canvas.Open(view.Badge.endWidth(), float64(20))
+	err := view.Canvas.Open(view.Badge.endWidth(), float64(20))
+
+	if err != nil {
+		panic(err)
+	}
+
 	view.draw()
 	view.Canvas.Close()
 }
