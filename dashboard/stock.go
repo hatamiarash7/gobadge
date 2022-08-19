@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	geo "github.com/medenzon/gobadge/svg/geometry"
-	"github.com/medenzon/gobadge/svg/shapes"
-	"github.com/medenzon/gobadge/svg/style"
+	geo "github.com/hatamiarash7/gobadge/svg/geometry"
+	"github.com/hatamiarash7/gobadge/svg/shapes"
+	"github.com/hatamiarash7/gobadge/svg/style"
 )
 
 func stockBadgeLabel(text string) shapes.Text {

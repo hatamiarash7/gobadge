@@ -1,8 +1,8 @@
 package dashboard
 
 import (
-	"github.com/medenzon/gobadge/svg"
-	geo "github.com/medenzon/gobadge/svg/geometry"
+	"github.com/hatamiarash7/gobadge/svg"
+	geo "github.com/hatamiarash7/gobadge/svg/geometry"
 )
 
 type Badge struct {

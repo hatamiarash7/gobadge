@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/medenzon/gobadge/svg/shapes"
+	"github.com/hatamiarash7/gobadge/svg/shapes"
 )
 
 type Text struct {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	geo "github.com/medenzon/gobadge/svg/geometry"
+	geo "github.com/hatamiarash7/gobadge/svg/geometry"
 )
 
 type Text struct {

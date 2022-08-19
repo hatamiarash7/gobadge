@@ -1,3 +1,3 @@
-module github.com/medenzon/gobadge
+module github.com/hatamiarash7/gobadge
 
 go 1.19

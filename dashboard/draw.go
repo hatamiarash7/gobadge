@@ -5,9 +5,9 @@ import (
 	"log"
 	"strings"
 
-	"github.com/medenzon/gobadge/svg"
-	geo "github.com/medenzon/gobadge/svg/geometry"
-	"github.com/medenzon/gobadge/svg/style"
+	"github.com/hatamiarash7/gobadge/svg"
+	geo "github.com/hatamiarash7/gobadge/svg/geometry"
+	"github.com/hatamiarash7/gobadge/svg/style"
 )
 
 func (view *View) draw(count int, rows int, cols int) {

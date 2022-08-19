@@ -3,7 +3,7 @@ package dashboard
 import (
 	"math"
 
-	"github.com/medenzon/gobadge/svg"
+	"github.com/hatamiarash7/gobadge/svg"
 )
 
 type View struct {

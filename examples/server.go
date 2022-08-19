@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strconv"
 
-	dash "github.com/medenzon/gobadge/dashboard"
-	"github.com/medenzon/gobadge/svg"
+	dash "github.com/hatamiarash7/gobadge/dashboard"
+	"github.com/hatamiarash7/gobadge/svg"
 )
 
 type data struct {

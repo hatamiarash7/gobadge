@@ -3,9 +3,9 @@ package dashboard
 import (
 	"fmt"
 
-	geo "github.com/medenzon/gobadge/svg/geometry"
-	"github.com/medenzon/gobadge/svg/shapes"
-	"github.com/medenzon/gobadge/svg/style"
+	geo "github.com/hatamiarash7/gobadge/svg/geometry"
+	"github.com/hatamiarash7/gobadge/svg/shapes"
+	"github.com/hatamiarash7/gobadge/svg/style"
 )
 
 func (view View) DrawHeader() error {
