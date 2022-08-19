@@ -17,7 +17,6 @@ func New(writer io.Writer) *Canvas {
 }
 
 func (canvas *Canvas) Open(width float64, height float64) error {
-
 	open, close := `<svg `, `>`
 	_width := fmt.Sprintf(`width="%f"`, width)
 	_height := fmt.Sprintf(` height="%f"`, height)
