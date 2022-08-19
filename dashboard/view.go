@@ -1,34 +1,16 @@
 package dashboard
 
 import (
-	"math"
-
 	"github.com/hatamiarash7/gobadge/svg"
 )
 
 type View struct {
-	Canvas  *svg.Canvas
-	Header  Header  `json:"header"`
-	Columns int     `json:"columns"`
-	Badges  []Badge `json:"badge"`
-}
-
-type Header struct {
-	Title  string `json:"title"`
-	Detail string `json:"detail"`
+	Canvas *svg.Canvas
+	Badge  Badge
 }
 
 func (view *View) Draw() {
-
-	count := len(view.Badges)
-	split := float64(count) / float64(view.Columns)
-	rows, cols := int(math.Ceil(split)), view.Columns
-
-	width := float64(((badgeW + 20) * (view.Columns - 1)) + badgeW)
-	height := float64(((badgeH + vpad) * rows) - vpad + voff)
-
-	view.Canvas.Open(width, height)
-	view.DrawHeader()
-	view.draw(count, rows, cols)
+	view.Canvas.Open(float64(badgeW), float64(badgeH))
+	view.draw()
 	view.Canvas.Close()
 }

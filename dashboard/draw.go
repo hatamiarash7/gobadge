@@ -2,7 +2,6 @@ package dashboard
 
 import (
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/hatamiarash7/gobadge/svg"
@@ -10,30 +9,13 @@ import (
 	"github.com/hatamiarash7/gobadge/svg/style"
 )
 
-func (view *View) draw(count int, rows int, cols int) {
-
-	index := 0
-
-	for col := 0; col < cols; col++ {
-
-		for row := 0; row < rows; row++ {
-			if index < count {
-				log.Println(index, row)
-				x := ((badgeW + badgeH) * col) + hoff
-				y := ((badgeH + vpad) * row) + voff
-
-				badge := view.Badges[index]
-				origin := geo.Coordinate{X: float64(x), Y: float64(y)}
-				badge.draw(view.Canvas, origin)
-
-				index++
-			}
-		}
-	}
+func (view *View) draw() {
+	badge := view.Badge
+	origin := geo.Coordinate{X: 0, Y: 0}
+	badge.draw(view.Canvas, origin)
 }
 
 func (badge Badge) draw(canvas *svg.Canvas, origin geo.Coordinate) error {
-
 	gradient := stockBadgeGradient("#000000", 0.1, "#BBBBBB", 0.1)
 	filter := stockTextFilter()
 
