@@ -2,10 +2,11 @@ package dashboard
 
 import (
 	"fmt"
+	"strings"
+
 	geo "github.com/medenzon/gobadge/svg/geometry"
 	"github.com/medenzon/gobadge/svg/shapes"
 	"github.com/medenzon/gobadge/svg/style"
-	"strings"
 )
 
 func stockBadgeLabel(text string) shapes.Text {

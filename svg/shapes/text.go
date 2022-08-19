@@ -2,8 +2,9 @@ package shapes
 
 import (
 	"fmt"
-	geo "github.com/medenzon/gobadge/svg/geometry"
 	"strings"
+
+	geo "github.com/medenzon/gobadge/svg/geometry"
 )
 
 type Text struct {

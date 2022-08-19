@@ -2,11 +2,12 @@ package dashboard
 
 import (
 	"fmt"
+	"log"
+	"strings"
+
 	"github.com/medenzon/gobadge/svg"
 	geo "github.com/medenzon/gobadge/svg/geometry"
 	"github.com/medenzon/gobadge/svg/style"
-	"log"
-	"strings"
 )
 
 func (view *View) draw(count int, rows int, cols int) {
