@@ -15,30 +15,22 @@ func stockBadgeLabel(text string) shapes.Text {
 	return stockText(text, id, origin)
 }
 
-func stockBadgeTag(text string, label string) shapes.Text {
-	labelWidth := float64(len(label))*6.5 + 3
-
+func stockBadgeTag(text string, labelWidth float64) shapes.Text {
 	id := makeTextID(text, "tag")
 	origin := geo.Coordinate{X: labelWidth + 6, Y: 14}
 	return stockText(text, id, origin)
 }
 
-func stockBadgeBlock(text string) shapes.Path {
-	width := float64(len(text))*6.5 + 3
-
+func stockBadgeBlock(labelWidth float64) shapes.Path {
 	return shapes.Path{
 		ID:       "block",
 		Fill:     "#000",
 		FillRule: "nonzero",
-		D:        "M 3 0 L " + fmt.Sprintf("%f", width) + " 0 L " + fmt.Sprintf("%f", width) + " 20 L 3 20 C 1.3431 20 0 18.6569 0 17 L 0 3 C 0 1.3431 1.3431 0 3 0",
+		D:        "M 3 0 L " + fmt.Sprintf("%f", labelWidth) + " 0 L " + fmt.Sprintf("%f", labelWidth) + " 20 L 3 20 C 1.3431 20 0 18.6569 0 17 L 0 3 C 0 1.3431 1.3431 0 3 0",
 	}
 }
 
-func stockBadgeColor(fill string, label string, tag string) shapes.Path {
-	labelWidth := float64(len(label))*6.5 + 3
-	tagWidth := float64(len(tag)) * 6.5
-	end := labelWidth + tagWidth + 13
-
+func stockBadgeColor(fill string, labelWidth float64, end float64) shapes.Path {
 	return shapes.Path{
 		ID:       "color",
 		Fill:     fill,
@@ -47,11 +39,7 @@ func stockBadgeColor(fill string, label string, tag string) shapes.Path {
 	}
 }
 
-func stockBadgeGradientRect(label string, tag string) shapes.Rect {
-	labelWidth := float64(len(label))*6.5 + 3
-	tagWidth := float64(len(tag)) * 6.5
-	end := labelWidth + tagWidth + 13
-
+func stockBadgeGradientRect(end float64) shapes.Rect {
 	return shapes.Rect{
 		ID:       "gradient",
 		Fill:     "url(#texture)",

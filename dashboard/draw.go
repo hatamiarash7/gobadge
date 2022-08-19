@@ -18,10 +18,10 @@ func (badge Badge) draw(canvas *svg.Canvas) error {
 	filter := stockTextFilter()
 
 	labelText := stockBadgeLabel(badge.Label)
-	tagText := stockBadgeTag(badge.Tag, badge.Label)
-	path1 := stockBadgeBlock(badge.Label)
-	path2 := stockBadgeColor(colormap(badge.Color), badge.Label, badge.Tag)
-	rect := stockBadgeGradientRect(badge.Label, badge.Tag)
+	tagText := stockBadgeTag(badge.Tag, badge.labelWidth())
+	path1 := stockBadgeBlock(badge.labelWidth())
+	path2 := stockBadgeColor(colormap(badge.Color), badge.labelWidth(), badge.endWidth())
+	rect := stockBadgeGradientRect(badge.endWidth())
 	labelStyle := style.Text{ID: badge.Label, Filter: filter, Text: labelText}
 	tagStyle := style.Text{ID: badge.Tag, Filter: filter, Text: tagText}
 
