@@ -16,6 +16,27 @@ package main
 import (
     "github.com/hatamiarash7/gobadge"
 )
+
+var HttpHandler = func(writer http.ResponseWriter, r *http.Request) {
+    label := r.URL.Query().Get("label")
+    tag := r.URL.Query().Get("tag")
+    color := r.URL.Query().Get("color")
+
+    writer.Header().Set("Content-Type", "image/svg+xml")
+    writer.Header().Set("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0")
+
+    canvas := svg.New(writer)
+    view := dash.View{
+        Canvas: canvas,
+        Badge: dash.Badge{
+            Label: label,
+            Tag:   tag,
+            Color: color,
+        },
+    }
+
+    view.Draw()
+}
 ```
 
 ## Example
