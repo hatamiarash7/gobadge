@@ -17,3 +17,13 @@ import (
     "github.com/hatamiarash7/gobadge"
 )
 ```
+
+## Example
+
+Run server:
+
+```bash
+cd example && go run server.go
+```
+
+Then get your badge from `http://localhost:8080/example?label=hello&tag=world&color=green`
